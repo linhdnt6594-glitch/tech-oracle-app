@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TECH ORACLE 2026 - ĐẠI PHÁP SƯ THÙY LINH</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Exo+2:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --neon: #00f2ff; --purple: #bc13fe; --dark: #020205; }
+        body { background: radial-gradient(circle, #1a1a2e 0%, var(--dark) 100%); color: #fff; font-family: 'Exo 2', sans-serif; text-align: center; height: 100vh; margin: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; overflow: hidden; }
+        h1 { font-family: 'Orbitron', sans-serif; font-size: 3.5rem; text-transform: uppercase; color: var(--neon); text-shadow: 0 0 15px var(--neon), 0 0 30px var(--purple); margin-bottom: 5px; animation: neonPulse 2s infinite alternate; }
+        @keyframes neonPulse { 0% { opacity: 1; text-shadow: 0 0 15px var(--neon), 0 0 30px var(--purple); } 100% { opacity: 0.8; text-shadow: 0 0 5px var(--neon), 0 0 10px var(--purple); } }
+        .crystal-container { position: relative; width: 280px; height: 280px; margin: 20px auto; cursor: pointer; transition: 0.5s; display: flex; justify-content: center; align-items: center; }
+        .crystal-ball { font-size: 180px; filter: drop-shadow(0 0 40px var(--purple)); animation: float 4s ease-in-out infinite; transition: 0.5s; }
+        .crystal-container:hover .crystal-ball { transform: scale(1.15) rotate(5deg); filter: drop-shadow(0 0 60px var(--neon)); }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-25px); } }
+        #result-box { margin-top: 30px; padding: 25px; border: 2px solid var(--neon); border-radius: 20px; background: rgba(0, 242, 255, 0.05); width: 85%; max-width: 550px; min-height: 60px; box-shadow: 0 0 20px rgba(0,242,255,0.2), inset 0 0 15px rgba(0,242,255,0.1); transition: 0.5s; opacity: 0; transform: translateY(20px); }
+        #result-box.show { opacity: 1; transform: translateY(0); }
+        #result { font-size: 1.6rem; font-weight: 600; color: #fff; text-shadow: 0 0 10px var(--neon); }
+        .footer { position: absolute; bottom: 20px; font-size: 0.8rem; opacity: 0.5; letter-spacing: 3px; text-transform: uppercase; }
+        .stars { position: absolute; width: 100%; height: 100%; background: url('https://www.transparenttextures.com/patterns/stardust.png'); opacity: 0.3; z-index: -1; }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    <h1>🔮 TECH ORACLE 2026</h1>
+    <p style="letter-spacing: 4px; color: #aaa; text-transform: uppercase; font-weight: 300;">QUẺ MỆNH CÔNG NGHỆ BY ĐẠI PHÁP SƯ THÙY LINH</p>
+    
+    <div class="crystal-container" onclick="getFortune()">
+        <div class="crystal-ball">🔮</div>
+    </div>
+
+    <div id="result-box">
+        <div id="result">Chạm vào quả cầu để thấu thị tương lai...</div>
+    </div>
+
+    <p class="footer">STAY TECH - STAY MYSTICAL - POWERED BY THUY LINH</p>
+
+    <script>
+        function getFortune() {
+            const fortunes = [
+                "✨ Bug sẽ tự biến mất khi bạn nhìn vào nó!",
+                "✨ Một Project triệu đô đang chờ đợi bạn phía trước.",
+                "✨ Render sẽ luôn màu xanh (Live) mỗi khi bạn Deploy.",
+                "✨ Bạn sẽ sớm trở thành một Fullstack Developer thực thụ!",
+                "✨ AI sẽ là trợ thủ đắc lực giúp bạn thăng tiến thần tốc.",
+                "✨ Tương lai của bạn rực rỡ như màn hình OLED 4K!",
+                "✨ Sếp sẽ tăng lương gấp đôi vì code của bạn quá đỉnh!",
+                "✨ Hôm nay là ngày tuyệt vời để Commit code mới."
+            ];
+            const resultBox = document.getElementById('result-box');
+            const resultDiv = document.getElementById('result');
+            
+            resultBox.classList.remove('show'); // Ẩn cái cũ đi
+            
+            setTimeout(() => {
+                const random = fortunes[Math.floor(Math.random() * fortunes.length)];
+                resultDiv.innerText = random;
+                resultBox.classList.add('show'); // Hiện cái mới lên
+            }, 400); // Đợi 1 chút cho nó mượt
+        }
+    </script>
+</body>
+</html>
